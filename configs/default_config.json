@@ -1,0 +1,25 @@
+{
+  "counting_lines": [
+    {
+      "name": "Main entrance",
+      "x1": 0,
+      "y1": 360,
+      "x2": 1280,
+      "y2": 360,
+      "entry_direction": "negative_to_positive",
+      "min_displacement": 8
+    }
+  ],
+  "zones": [
+    {
+      "name": "Promo zone",
+      "polygon": [
+        { "x": 120, "y": 120 },
+        { "x": 520, "y": 120 },
+        { "x": 520, "y": 520 },
+        { "x": 120, "y": 520 }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,239 @@
+{
+  "run_id": "2026-10-12T08:13:47.710139+00:00",
+  "state": "completed",
+  "configuration": {
+    "source": "data/videos/retail_store.mp4",
+    "output_dir": "outputs/retail_store_test",
+    "model_path": "VisionOps_best.pt",
+    "fallback_model": "yolo11s.pt",
+    "confidence": 0.25,
+    "iou": 0.55,
+    "imgsz": 960,
+    "device": null,
+    "trajectory_points": 45,
+    "missing_grace_seconds": 1.0,
+    "zones_reviewed": false,
+    "zones": [
+      {
+        "name": "Cashier area",
+        "polygon": [
+          [
+            0.04,
+            0.32
+          ],
+          [
+            0.3,
+            0.19
+          ],
+          [
+            0.4,
+            0.53
+          ],
+          [
+            0.2,
+            0.96
+          ],
+          [
+            0.07,
+            0.96
+          ]
+        ]
+      },
+      {
+        "name": "Shopping shelves",
+        "polygon": [
+          [
+            0.46,
+            0.14
+          ],
+          [
+            0.98,
+            0.34
+          ],
+          [
+            0.91,
+            0.78
+          ],
+          [
+            0.67,
+            0.67
+          ],
+          [
+            0.64,
+            0.42
+          ],
+          [
+            0.49,
+            0.3
+          ]
+        ]
+      }
+    ],
+    "counting_line": {
+      "name": "Entrance candidate",
+      "start": [
+        0.58,
+        0.9
+      ],
+      "end": [
+        0.94,
+        0.63
+      ],
+      "entry_direction": "positive_to_negative",
+      "min_displacement": 12.0,
+      "reviewed": false
+    }
+  },
+  "source": {
+    "path": "data/videos/retail_store.mp4",
+    "sha256": "c2dae675067a78f3889ab486ab0fcd65ebf78c157c8b0f90bdccc1e0995edb8b",
+    "fps": 13.093,
+    "width": 1270,
+    "height": 720,
+    "decoded_frames": 1452,
+    "duration_seconds": 110.89895363934927,
+    "timestamp_source": "OpenCV presentation timestamps; frame_index/FPS fallback if non-monotonic",
+    "timestamp_fallback_frames": 0
+  },
+  "model": {
+    "path": "VisionOps_best.pt",
+    "sha256": "d9002df1093e1ed0d3d31e1ec8f0e1ef68e494bc6dfa3bf6ba29be3b571d446f",
+    "fallback_used": false,
+    "kind": "fine-tuned YOLO11s",
+    "selection_note": "Local fine-tuned checkpoint loaded successfully.",
+    "class_names": {
+      "0": "person"
+    },
+    "architecture": "yolo11s.yaml",
+    "scale": "s",
+    "parameters": 9413187
+  },
+  "environment": {
+    "python": "3.11.0",
+    "ultralytics": "8.4.7",
+    "opencv": "4.10.0",
+    "torch": "2.14.0+cu126",
+    "device": "0",
+    "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU"
+  },
+  "tracker": {
+    "implementation": "BYTETracker",
+    "config": {
+      "tracker_type": "bytetrack",
+      "track_high_thresh": 0.25,
+      "track_low_thresh": 0.1,
+      "new_track_thresh": 0.25,
+      "track_buffer": 30,
+      "match_thresh": 0.8,
+      "fuse_score": true
+    }
+  },
+  "analytics": {
+    "entries": 8,
+    "exits": 3,
+    "line_counts_provisional": true,
+    "provisional_line_balance": 5,
+    "unique_track_ids": 138,
+    "peak_visible_people": 13,
+    "final_visible_people": 6,
+    "event_count": 375,
+    "zones": [
+      {
+        "name": "Cashier area",
+        "unique_track_ids": 71,
+        "visits": 123,
+        "censored_visits": 74,
+        "average_dwell_seconds": 3.7468044427637435,
+        "average_uncensored_dwell_seconds": 2.401968959889768,
+        "peak_occupancy": 7,
+        "final_occupancy": 2
+      },
+      {
+        "name": "Shopping shelves",
+        "unique_track_ids": 32,
+        "visits": 59,
+        "censored_visits": 31,
+        "average_dwell_seconds": 1.7566638661880394,
+        "average_uncensored_dwell_seconds": 1.3256811164089857,
+        "peak_occupancy": 4,
+        "final_occupancy": 1
+      }
+    ]
+  },
+  "performance": {
+    "processing_seconds": 40.56047319993377,
+    "processing_fps": 35.798398920118395,
+    "end_to_end_seconds": 55.21529530000407,
+    "end_to_end_fps": 26.297061205790435,
+    "inference_ms": {
+      "mean": 11.717570937923655,
+      "median": 11.655849986709654,
+      "p95": 12.518914981046692,
+      "max": 24.118100060150027
+    },
+    "tracking_call_ms": {
+      "mean": 18.909611707468603,
+      "median": 18.400150001980364,
+      "p95": 19.988379982532933,
+      "max": 580.2283000666648
+    },
+    "steady_state_inference_ms": {
+      "mean": 11.709024742801516,
+      "median": 11.655799928121269,
+      "p95": 12.510049971751869,
+      "max": 18.706300063058734
+    },
+    "note": "All-frame statistics include first-frame setup; steady-state excludes frame 0. End to end includes encoding and full output decode verification, excludes report/hash writing."
+  },
+  "diagnostics": {
+    "candidate_counts": {
+      "low_confidence": 523,
+      "occlusion_overlap": 582,
+      "tracking_gap": 276,
+      "possible_id_switch": 35
+    },
+    "evidence_frames": 23,
+    "note": "Heuristics indicate review candidates, not confirmed misses, ID switches or accuracy."
+  },
+  "verification": {
+    "all_source_frames_processed": true,
+    "bytetrack_ids_observed": true,
+    "annotated_mp4_fully_decoded": true,
+    "source_duration_preserved": true,
+    "csv_json_event_counts_match": true,
+    "video_timestamp_dwell": true,
+    "entrance_line_human_review": false,
+    "zones_human_review": false,
+    "ground_truth_accuracy": "NOT MEASURED",
+    "events_csv_json_values_match": true,
+    "actual_bytetrack_implementation": true,
+    "zone_occupancy_recomputed_all_frames": true,
+    "video_time_dwell_recomputed_all_visits": true,
+    "duplicate_line_events_absent": true,
+    "api_matches_run": true,
+    "video_http_range": true,
+    "config_round_trip": true,
+    "browser_errors": [],
+    "desktop_mobile_video_playback": true,
+    "desktop_mobile_geometry_preview": true,
+    "desktop_geometry_draft_drag": true,
+    "desktop_mobile_event_filter_and_video_seek": true,
+    "desktop_mobile_evidence_toggle": true,
+    "api_triggered_full_run": true,
+    "duplicate_concurrent_api_run_rejected": true,
+    "manual_failure_examples_reviewed": true,
+    "trajectories_visually_inspected": true,
+    "automated_tests_passed": 18,
+    "frontend_production_build": "PASSED",
+    "pretrained_fallback_execution": "NOT EXERCISED: fine-tuned checkpoint loaded",
+    "mobile_touch_geometry_drag": "NOT TESTED"
+  },
+  "artifacts": {
+    "video": "annotated.mp4",
+    "events_csv": "events.csv",
+    "events_json": "events.json",
+    "report": "test_report.md",
+    "metrics": "frame_metrics.csv",
+    "evidence": "evidence.json"
+  }
+}

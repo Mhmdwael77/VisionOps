@@ -1,0 +1,113 @@
+{
+  "source": "data/videos/retail_store.mp4",
+  "output_dir": "outputs/retail_store_test",
+  "model_path": "VisionOps_best.pt",
+  "fallback_model": "yolo11s.pt",
+  "confidence": 0.25,
+  "iou": 0.55,
+  "imgsz": 960,
+  "device": null,
+  "trajectory_points": 45,
+  "missing_grace_seconds": 1.0,
+  "tracking": {
+    "mode": "bytetrack",
+    "lost_buffer_frames": 90,
+    "track_high_thresh": 0.25,
+    "track_low_thresh": 0.1,
+    "new_track_thresh": 0.5,
+    "match_thresh": 0.9,
+    "reid_enabled": true,
+    "reid_model": "models/osnet_ain_x1_0_msmt17.pt",
+    "reid_split_similarity": 0.66,
+    "reid_merge_similarity": 0.8,
+    "reid_min_link_similarity": 0.72,
+    "reid_max_gap_seconds": 30.0,
+    "reid_max_overlap_seconds": 1.0,
+    "min_track_seconds": 1.0,
+    "gmc_method": "sparseOptFlow",
+    "recovery_enabled": true,
+    "embedding_backend": "native",
+    "embedding_model": null,
+    "gallery_size": 20,
+    "gallery_min_observations": 2,
+    "gallery_max_age_frames": 120,
+    "reliable_confidence": 0.5,
+    "occlusion_iou": 0.35,
+    "min_embedding_similarity": 0.85,
+    "min_color_similarity": 0.65,
+    "min_recovery_iou": 0.2,
+    "max_center_distance": 0.75,
+    "ambiguity_margin": 0.08
+  },
+  "zones_reviewed": false,
+  "zones": [
+    {
+      "name": "Cashier area",
+      "polygon": [
+        [
+          0.04,
+          0.32
+        ],
+        [
+          0.3,
+          0.19
+        ],
+        [
+          0.4,
+          0.53
+        ],
+        [
+          0.2,
+          0.96
+        ],
+        [
+          0.07,
+          0.96
+        ]
+      ]
+    },
+    {
+      "name": "Shopping shelves",
+      "polygon": [
+        [
+          0.0,
+          0.02724481704923467
+        ],
+        [
+          0.9952734846766116,
+          0.002233181352935703
+        ],
+        [
+          0.9520593800748866,
+          0.6549176650678677
+        ],
+        [
+          0.67,
+          0.67
+        ],
+        [
+          0.48953407840729984,
+          0.8311901041060877
+        ],
+        [
+          0.30587441718331215,
+          0.18326973606733274
+        ]
+      ]
+    }
+  ],
+  "counting_line": {
+    "name": "Entrance candidate",
+    "start": [
+      0.58,
+      0.9
+    ],
+    "end": [
+      0.94,
+      0.63
+    ],
+    "entry_direction": "positive_to_negative",
+    "min_displacement": 12.0,
+    "reviewed": false
+  }
+}
